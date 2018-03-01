@@ -9,6 +9,11 @@
     "start": "npm run dev",
     "build": "node build/build.js",
     "build:watch": "cross-env WEBPACK_WATCH=true node build/build.js",
+    "preupload": "npm run build&&cordova prepare",
+    "upload": "git commit -am",
+    "postupload": "git push origin master",
+    "apk": "npm run build&&cordova build&start E:/workspace/vue-onsen/platforms/android/app/build/outputs/apk/debug/",
+    "gh": "git subtree push --prefix=www origin gh-pages",
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
