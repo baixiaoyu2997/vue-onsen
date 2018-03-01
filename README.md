@@ -1,7 +1,8 @@
 # vue-onsen
 
-> A Vue.js project
-
+> A Vue.js +onsenui project，因为豆瓣api的限制，加上初版本已经完成，该项目不再更新。
+## 注意事项
+     当用浏览器测试时如果安装了插件lastpass，请先禁用再进行测试。否则会在跳转页面时遇到问题。
 ## Build Setup
 
 ``` bash
@@ -14,8 +15,5 @@ npm run dev
 # build for production with minification
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
