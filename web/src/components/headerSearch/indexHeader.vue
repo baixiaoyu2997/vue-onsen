@@ -4,28 +4,34 @@
       <span class="selectCity">{{city}}</span>
       <v-ons-icon icon="ion-ios-arrow-down,material:md-chevron-down" class="icon--down"></v-ons-icon>
     </div>
-    <input type="search" placeholder="电影 / 电视剧 / 影人" readonly class="search-input" @click="push(searchPage)" />
+    <input
+      type="search"
+      placeholder="电影 / 电视剧 / 影人"
+      readonly
+      class="search-input"
+      @click="push(searchPage)"
+    />
   </div>
 </template>
 <script>
-import searchPage from "@/pages/searchPage.vue"
-import selectCityPage from "components/headerSearch/selectCityPage.vue"
+import searchPage from "@/pages/searchPage.vue";
+import selectCityPage from "components/headerSearch/selectCityPage.vue";
 
 export default {
-  name: 'indexHeader',
+  name: "indexHeader",
   props: ["city"],
   data() {
     return {
       searchPage,
       selectCityPage
-    }
+    };
   },
   methods: {
     push(page) {
-      this.$store.commit("navigator/push",page)
+      this.$store.commit("navigator/push", page);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -40,8 +46,8 @@ export default {
   }
   .selectItem {
     display: flex;
-    flex-shrink: 0;
     align-items: center;
+    width: 75px;
   }
   .icon--down {
     color: #9b9b9b;
@@ -50,12 +56,15 @@ export default {
   .selectCity {
     color: #3d3d3d;
     font-size: 15px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 }
 
 .search-input {
   background-position: 24% center;
-  width: 100%;
+  flex: 1;
 }
 
 input::-webkit-input-placeholder {
