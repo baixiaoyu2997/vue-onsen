@@ -62,8 +62,8 @@
             <ons-col
               width="84px"
               v-for="item in res.directors"
-              :key="item.id"
-              v-if="item.avatars"
+              :key="'director'+item.id"
+              v-show="item.avatars"
               class="main__directors"
             >
               <img v-if="item.avatars" :src="item.avatars.medium" />
@@ -73,8 +73,8 @@
             <ons-col
               width="84px"
               v-for="item in res.casts"
-              :key="item.id"
-              v-if="item.avatars"
+              :key="'cast'+item.id"
+              v-show="item.avatars"
               class="main__casts"
             >
               <img :src="item.avatars.medium" />
@@ -116,11 +116,11 @@ export default {
         console.log(err);
       }
     );
-    const posterBG = await RGBaster(this.res.images.large, {
-      paletteSize: 200,
-      ignore: ["rgb(0,0,0)", "rgb(255,255,255)"]
+    const posterBG = await RGBaster(this.res.images.small, {
+      ignore: ["rgb(0,0,0)", "rgb(255,255,255)"],
+      scale: 0.6
     });
-    this.posterBG=posterBG[0].color
+    this.posterBG = posterBG[0].color;
     this.flag = true;
   },
   methods: {
