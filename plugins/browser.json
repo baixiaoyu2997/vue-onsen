@@ -1,0 +1,18 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.baixiaoyu2997.app"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.baixiaoyu2997.app"
+    }
+  },
+  "dependent_plugins": {}
+}
