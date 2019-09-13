@@ -8,7 +8,7 @@
     "dev": "cd web&&npm run serve&&cd ..",
     "prepare": "cd web&&npm run build&&cd ..&&cordova prepare",
     "gh": "git subtree push --prefix=platforms/browser/www origin gh-pages",
-    "newgh":"git push origin :gh-pages&&npm run gh"
+    "newgh": "git push origin :gh-pages&&npm run gh"
   },
   "keywords": [
     "ecosystem:cordova"
