@@ -7,9 +7,6 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    strategy:
-      matrix:
-        node: [ '10', '8' ]
     name: Node ${{ matrix.node }} sample
     steps:
       - name: 更新代码
@@ -17,7 +14,7 @@ jobs:
       - name: 安装node
         uses: actions/setup-node@master
         with:
-          node-version: ${{ matrix.node }}
+          node-version: '10.x'
       - name: 前端安装包依赖
         run: cd web && npm i && cd ..
       - name: cordova安装包依赖
