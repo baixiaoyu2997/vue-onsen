@@ -13,7 +13,6 @@
 /platforms/android/app/src/main/assets/www
 /platforms/browser/*
 !platforms/browser/www
-/www
 # Optional to ignore plugin Git clones
 #/plugins
 
