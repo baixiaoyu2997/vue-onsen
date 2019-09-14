@@ -12,9 +12,9 @@ jobs:
         node: [ '10', '8' ]
     name: Node ${{ matrix.node }} sample
     steps:
-      - uses: actions/checkout
+      - uses: actions/checkout@master
       - name: Setup node
-        uses: actions/setup-node
+        uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node }}
       - run: cd web && npm i && cd ..
