@@ -6,7 +6,7 @@ on:
 
 jobs:
   gh-pages:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
         - name: 更新代码
           uses: actions/checkout@master
