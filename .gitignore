@@ -14,7 +14,7 @@
 /platforms/browser/*
 !platforms/browser/www
 www/*
-!www/.gitkeep
+!www/favicon.ico
 # Optional to ignore plugin Git clones
 #/plugins
 
