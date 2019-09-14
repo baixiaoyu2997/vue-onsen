@@ -18,12 +18,12 @@ jobs:
           run: cd web && npm i && cd ..
         - name: cordova安装包依赖
           run: npm i
-        - name: cordova删除平台
-          run: cordova platform rm android browser
         - name: cordova添加平台
-          run: cordova platform add android browser
+          run: npm run platform
         - name: build前端代码&cordova prepare
           run: npm run compile
         - name: 发布gh-pages
-          run: npm run newgh
+          run: npm run gh
+        - name: 删除分支
+          run: git push origin :gh-pages&&npm run gh
   

@@ -13,7 +13,8 @@
 /platforms/android/app/src/main/assets/www
 /platforms/browser/*
 !platforms/browser/www
-www/
+www/*
+!www/.gitkeep
 # Optional to ignore plugin Git clones
 #/plugins
 
