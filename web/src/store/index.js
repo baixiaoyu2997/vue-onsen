@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-
+import VueOnsen from "vue-onsenui";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -42,18 +42,6 @@ export default new Vuex.Store({
         }
       }
     },
-    movieTabbar: {
-      strict: true,
-      namespaced: true,
-      state: {
-        index: 0
-      },
-      mutations: {
-        set(state, index) {
-          state.index = index;
-        }
-      }
-    },
     selectPage: {
       strict: true,
       namespaced: true,
@@ -70,6 +58,31 @@ export default new Vuex.Store({
             value: payload.value,
             trueValue: payload.trueValue
           };
+        }
+      },
+      actions: {
+        getPosition({ commit }) {
+          cordova.plugins.baidumap_location.getCurrentPosition(
+            function(result) {
+              let city = result.city;
+              if (city.lastIndexOf("市") == city.length - 1) {
+                city = city.substring(0, city.length - 1);
+              }
+              commit("changeCity", {
+                value: city,
+                trueValue: true
+              });
+            },
+            function() {
+              commit("changeCity", {
+                value: "北京",
+                trueValue: false
+              });
+              VueOnsen.notification.toast("自动定位失败，您可以手动设置位置", {
+                timeout: 2000
+              });
+            }
+          );
         }
       }
     }

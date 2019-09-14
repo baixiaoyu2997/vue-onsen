@@ -7,10 +7,13 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-geolocation": {
+    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.baixiaoyu2997.app"
     },
-    "cordova-plugin-whitelist": {
+    "cordova-plugin-baidumaplocation": {
+      "ANDROID_KEY": "zbrHW0dbId91yRsqXpUIwarmfcibmmIF",
+      "IOS_KEY": "<API_KEY_IOS>",
+      "IOS_LOCATION_DESC": "请点击'好'以允许访问。",
       "PACKAGE_NAME": "com.baixiaoyu2997.app"
     }
   },

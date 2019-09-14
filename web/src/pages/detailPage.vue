@@ -97,7 +97,7 @@ export default {
   name: "detailPage",
   data() {
     return {
-      url: "/v2/movie/subject/",
+      url: "v2/movie/subject/",
       res: {},
       posterBG: "",
       main__summary: "main__summary hideText",

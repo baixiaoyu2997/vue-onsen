@@ -63,7 +63,7 @@ export default {
   },
   computed: {
     hotCityUrl() {
-      return "/v2/loc/list";
+      return "v2/loc/list";
     },
     positionCity() {
       return (

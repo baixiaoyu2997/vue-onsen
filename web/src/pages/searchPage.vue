@@ -82,7 +82,7 @@ import detailPage from "./detailPage";
 export default {
   data() {
     return {
-      url: "/v2/movie/search?q=",
+      url: "v2/movie/search?q=",
       searchValue: "",
       searchMovieList: [],
       searchHistoryArr: JSON.parse(localStorage.getItem("searchHistoryArr"))

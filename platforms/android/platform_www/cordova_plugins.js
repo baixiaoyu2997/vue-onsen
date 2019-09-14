@@ -1,22 +1,18 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
-      "id": "cordova-plugin-geolocation.geolocation",
-      "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
-      "pluginId": "cordova-plugin-geolocation",
+      "id": "cordova-plugin-baidumaplocation.baidumap_location",
+      "file": "plugins/cordova-plugin-baidumaplocation/www/baidumap_location.js",
+      "pluginId": "cordova-plugin-baidumaplocation",
       "clobbers": [
-        "navigator.geolocation"
+        "cordova.plugins.baidumap_location",
+        "plugin.baidumap_location",
+        "baidumap_location"
       ]
-    },
-    {
-      "id": "cordova-plugin-geolocation.PositionError",
-      "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
-      "pluginId": "cordova-plugin-geolocation",
-      "runs": true
     }
   ];
   module.exports.metadata = {
-    "cordova-plugin-geolocation": "4.0.2",
-    "cordova-plugin-whitelist": "1.3.4"
+    "cordova-plugin-whitelist": "1.3.4",
+    "cordova-plugin-baidumaplocation": "4.0.2"
   };
 });

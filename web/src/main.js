@@ -28,3 +28,10 @@ new Vue({
     Vue.prototype.md = this.$ons.platform.isAndroid();
   }
 });
+// 获取定位
+window.onload = function() {
+  function onDeviceReady() {
+    store.dispatch("selectPage/getPosition");
+  }
+  document.addEventListener("deviceready", onDeviceReady, false);
+};

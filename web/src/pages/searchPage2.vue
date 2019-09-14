@@ -68,7 +68,7 @@ export default {
   name: "searchPage2",
   data() {
     return {
-      url: "/v2/movie/search?q=",
+      url: "v2/movie/search?q=",
       searchMovieList: [],
       searchTotal: "",
       start: 0,

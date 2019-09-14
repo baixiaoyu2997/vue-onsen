@@ -6,9 +6,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "cd web&&npm run serve&&cd ..",
-    "prepare": "cd web&&npm run build&&cd ..&&cordova prepare",
+    "compile": "cd web&&npm run build&&cd ..&&cordova prepare",
     "gh": "git subtree push --prefix=platforms/browser/www origin gh-pages",
-    "newgh": "git push origin :gh-pages&&npm run gh"
+    "newgh": "git push origin :gh-pages&&npm run gh",
+    "platform": "cordova platform rm android browser&&cordova platform add android browser",
+    "dev-browser": "npm run compile&&cordova run browser"
   },
   "keywords": [
     "ecosystem:cordova"
@@ -18,7 +20,7 @@
   "dependencies": {
     "cordova-android": "^8.0.0",
     "cordova-browser": "^6.0.0",
-    "cordova-plugin-geolocation": "^4.0.2"
+    "cordova-plugin-baidumaplocation": "^4.0.2"
   },
   "devDependencies": {
     "cordova": "^9.0.0",
@@ -27,7 +29,11 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
-      "cordova-plugin-geolocation": {}
+      "cordova-plugin-baidumaplocation": {
+        "ANDROID_KEY": "zbrHW0dbId91yRsqXpUIwarmfcibmmIF",
+        "IOS_KEY": "<API_KEY_IOS>",
+        "IOS_LOCATION_DESC": "请点击'好'以允许访问。"
+      }
     },
     "platforms": [
       "android",

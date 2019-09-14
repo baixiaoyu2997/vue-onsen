@@ -13,14 +13,9 @@
     name: 'HitMoviePage',
     data() {
       return {
-        hitMovieUrl: "/v2/movie/in_theaters?city=",
-        comingSoonUrl: "/v2/movie/coming_soon?city=",
-        ak: "inNtxrDqUe6De9bosxvTV3sVaRGt5sGh",
-        BaiDuMapUrl: "https://api.map.baidu.com/geocoder/v2/"
+        hitMovieUrl: "v2/movie/in_theaters?city=",
+        comingSoonUrl: "v2/movie/coming_soon?city="
       }
-    },
-    created() {
-      this.getPosition();
     },
     computed: {
       city() {
@@ -45,42 +40,6 @@
     methods: {
       push(page) {
         this.$store.commit("navigator/push", page)
-      },
-      getPosition() {
-        var that = this;
-
-        var options = {
-          timeout: 1000,
-        }
-
-        var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
-
-        function onSuccess(position) {
-          that.$http.jsonp(that.BaiDuMapUrl + "?location=" + position.coords.latitude + "," + position.coords.longitude +
-            "&output=json&pois=1&ak=" + that.ak).then((response) => {
-            let res = response.body;
-            let city = res.result.addressComponent.city;
-            if (city.lastIndexOf("市") == city.length - 1) {
-              city = city.substring(0, city.length - 1)
-            }
-            that.$store.commit("selectPage/changeCity", {
-              value: city,
-              trueValue: true
-            })
-          }, (err) => {
-            console.log(err);
-          })
-        };
-
-        function onError(error) {
-          that.$store.commit("selectPage/changeCity", {
-            value: "北京",
-            trueValue: false
-          })
-          that.$ons.notification.toast("自动定位失败，您可以手动设置位置", {
-            timeout: 2000
-          });
-        }
       }
     },
     watch: {

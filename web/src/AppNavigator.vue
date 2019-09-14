@@ -4,7 +4,7 @@
 </template>
 
 <script>
-  import AppTabbar from 'components/AppTabbar'
+  import AppTabbar from '@/pages/homeMenu/AppTabbar'
 
   export default {
     beforeCreate() {

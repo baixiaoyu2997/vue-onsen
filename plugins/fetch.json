@@ -7,12 +7,15 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-geolocation": {
+  "cordova-plugin-baidumaplocation": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-geolocation@^4.0.2"
+      "id": "cordova-plugin-baidumaplocation@^4.0.2"
     },
     "is_top_level": true,
-    "variables": {}
+    "variables": {
+      "ANDROID_KEY": "zbrHW0dbId91yRsqXpUIwarmfcibmmIF",
+      "IOS_KEY": "<API_KEY_IOS>"
+    }
   }
 }
