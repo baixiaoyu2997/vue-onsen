@@ -5,25 +5,22 @@ on:
     - master
 
 jobs:
-  job1:
+  gh-pages:
     runs-on: windows-latest
     steps:
         - name: 更新代码
           uses: actions/checkout@master
-        - name: 安装node
+        - name: node安装
           uses: actions/setup-node@master
           with:
             node-version: '10.x'
-        - name: 前端安装包依赖
+        - name: 前端依赖包安装
           run: cd web && npm i && cd ..
-        - name: cordova安装包依赖
+        - name: cordova依赖包安装
           run: npm i
         - name: cordova添加平台
           run: npm run platform
-        - name: build前端代码&cordova prepare
+        - name: 前端代码打包&cordova prepare
           run: npm run compile
         - name: 发布gh-pages
-          run: npm run gh
-        - name: 删除分支
-          run: git push origin :gh-pages&&npm run gh
-  
+          run: npm run newgh

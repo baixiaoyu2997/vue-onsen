@@ -227,7 +227,7 @@ ons-toolbar {
   }
   .summary__expand {
     position: absolute;
-    right: 0;
+    right: 13px;
     bottom: 0;
     width: 3.2em;
     z-index:10;
