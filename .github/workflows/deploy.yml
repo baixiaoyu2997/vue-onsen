@@ -6,11 +6,16 @@ on:
 
 jobs:
   build:
-    name: 编译web到www
-    runs-on: windows-latest
+    runs-on: ubuntu-16.04
+    strategy:
+      matrix:
+        node: [ '10', '8' ]
+    name: Node ${{ matrix.node }} sample
     steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-node@master
-    with:
-      node-version: '10.x'
-    - run: npm install
+      - uses: actions/checkout@v1
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm install
+      - run: npm test
