@@ -14,7 +14,14 @@ jobs:
           uses: actions/setup-node@master
           with:
             node-version: '10.x'
+        - name: 前端安装包依赖
+          run: cd web && npm i && cd ..
+        - name: cordova安装包依赖
+          run: npm i
+        - name: cordova添加平台
+          run: npm run platform
+        - name: build前端代码&cordova prepare
+          run: npm run compile
         - name: 发布gh-pages
-          run: cd web && npm i && cd ..&&npm i&&npm run compile&&npm run newgh
-       
+          run: npm run newgh
   
