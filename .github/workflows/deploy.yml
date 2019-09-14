@@ -22,5 +22,10 @@ jobs:
           run: npm run platform
         - name: 前端代码打包&cordova prepare
           run: npm run compile
-        - name: 发布gh-pages
-          run: npm run newgh
+         - name: deploy to gh-pages
+          uses: JamesIves/github-pages-deploy-action@master
+          env:
+            ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+            BASE_BRANCH: master # The branch the action should deploy from.
+            BRANCH: gh-pages # The branch the action should deploy to.
+            FOLDER: platforms/browser/www # The folder the action should deploy.
