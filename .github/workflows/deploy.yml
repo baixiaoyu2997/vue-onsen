@@ -12,9 +12,18 @@ jobs:
         node: [ '10', '8' ]
     name: Node ${{ matrix.node }} sample
     steps:
-      - uses: actions/checkout@master
-      - name: Setup node
+      - name: 更新代码
+        uses: actions/checkout@master
+      - name: 安装node
         uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node }}
-      - run: cd web && npm i && cd ..
+      - name: 前端安装包依赖
+        run: cd web && npm i && cd ..
+      - name: cordova安装包依赖
+        run: npm i
+    steps:
+      - name: build前端代码&cordova prepare
+        run: npm run compile
+      - name: 发布gh-pages
+        run: npm run newgh
