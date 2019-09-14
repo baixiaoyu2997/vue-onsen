@@ -5,24 +5,16 @@ on:
     - master
 
 jobs:
-  build:
+  job1:
     runs-on: windows-latest
     steps:
-      step1:
         - name: 更新代码
           uses: actions/checkout@master
         - name: 安装node
           uses: actions/setup-node@master
           with:
             node-version: '10.x'
-        - name: 前端安装包依赖
-          run: cd web && npm i && cd ..
-      step2:
-        - name: cordova安装包依赖
-          run: npm i
-      step3:
-        - name: build前端代码&cordova prepare
-          run: npm run compile
-      step4:
         - name: 发布gh-pages
-          run: npm run newgh
+          run: cd web && npm i && cd ..&&npm i&&npm run compile&&npm run newgh
+       
+  
