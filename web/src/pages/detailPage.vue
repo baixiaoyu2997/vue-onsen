@@ -230,7 +230,8 @@ ons-toolbar {
     right: 0;
     bottom: 0;
     width: 3.2em;
-    background: #fff;
+    z-index:10;
+    background-color:#efeff4;
     text-align: right;
     span {
       color: #40be55;

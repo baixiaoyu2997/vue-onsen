@@ -10,7 +10,7 @@
 # Recommended template: Node.gitignore
 
 # App platform binaries and built files
-/platforms/android/*
+/platforms/android/app/src/main/assets/www
 /platforms/browser/*
 !platforms/browser/www
 /www

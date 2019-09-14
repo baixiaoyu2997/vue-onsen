@@ -108,7 +108,7 @@
       background: #fff !important;
     }
     .selectTabbar {
-      top: 33px !important;
+      top: 38px !important;
       .tabbar__label {
         color: #929292;
         font-size: 17px;

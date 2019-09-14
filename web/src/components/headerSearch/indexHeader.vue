@@ -4,13 +4,12 @@
       <span class="selectCity">{{city}}</span>
       <v-ons-icon icon="ion-ios-arrow-down,material:md-chevron-down" class="icon--down"></v-ons-icon>
     </div>
-    <input
-      type="search"
-      placeholder="电影 / 电视剧 / 影人"
+    <v-ons-search-input
       readonly
-      class="search-input"
+      placeholder="电影 / 电视剧 / 影人"
       @click="push(searchPage)"
-    />
+      class="ons-search-input"
+    ></v-ons-search-input>
   </div>
 </template>
 <script>
@@ -47,7 +46,7 @@ export default {
   .selectItem {
     display: flex;
     align-items: center;
-    width: 75px;
+    width: 60px;
   }
   .icon--down {
     color: #9b9b9b;
@@ -61,14 +60,21 @@ export default {
     text-overflow: ellipsis;
   }
 }
-
-.search-input {
-  background-position: 24% center;
-  flex: 1;
-}
-
-input::-webkit-input-placeholder {
-  text-align: center;
-  font-size: 16px;
+.ons-search-input {
+  width:100%;
+  height:28px;
+  overflow-y:hidden;
+  & /deep/ input::-webkit-input-placeholder {
+    text-align: center;
+    font-size: 16px;
+    line-height: 1;
+  }
+  & /deep/ .search-input {
+    border:none;
+    border-radius: 0;
+    height: 100%;
+    font-size: 16px;
+    background-position: 20% center;
+  }
 }
 </style>
