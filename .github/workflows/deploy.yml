@@ -1,0 +1,16 @@
+name: deploy to gh-pages
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    name: 编译web到www
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@master
+    with:
+      node-version: 10.x 
+    - run: cd web
