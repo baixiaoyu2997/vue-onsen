@@ -12,5 +12,5 @@ jobs:
     - uses: actions/checkout@master
     - uses: actions/setup-node@master
     with:
-      node-version: 10.16.2 
-    - run: ls
+      node-version: '10.x'
+    - run: npm install
