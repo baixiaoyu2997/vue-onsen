@@ -30,8 +30,15 @@ new Vue({
 });
 // 获取定位
 window.onload = function() {
-  function onDeviceReady() {
-    store.dispatch("selectPage/getPosition");
+  if (typeof cordova !== "undefined") {
+    document.addEventListener(
+      "deviceready",
+      () => {
+        store.dispatch("selectPage/getMobPosition");
+      },
+      false
+    );
+  } else {
+    store.dispatch("selectPage/getH5Position");
   }
-  document.addEventListener("deviceready", onDeviceReady, false);
 };

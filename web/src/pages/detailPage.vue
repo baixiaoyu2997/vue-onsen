@@ -227,11 +227,11 @@ ons-toolbar {
   }
   .summary__expand {
     position: absolute;
-    right: 13px;
+    right: 0;
     bottom: 0;
     width: 3.2em;
-    z-index:10;
-    background-color:#efeff4;
+    z-index: 10;
+    background-color: #efeff4;
     text-align: right;
     span {
       color: #40be55;
