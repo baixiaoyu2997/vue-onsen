@@ -1,7 +1,7 @@
 <template>
     <v-ons-page>
         <div class="content">
-            菜单页
+            L.Rain作品
         </div>
     </v-ons-page>
 </template>
