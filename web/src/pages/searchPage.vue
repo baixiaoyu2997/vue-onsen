@@ -70,7 +70,7 @@
             <v-ons-ripple modifier="light-gray" size="contain"></v-ons-ripple>
           </v-ons-row>
         </v-ons-row>
-        <loading v-if="searchValue&&searchMovieList.length<=0"></loading>
+        <Loading v-if="searchValue&&searchMovieList.length===0" />
       </div>
     </div>
   </v-ons-page>
@@ -78,8 +78,14 @@
 
 <script>
 import searchPage2 from "./searchPage2";
+import Loading from "components/Loading.vue";
 import detailPage from "./detailPage";
+import { debounce } from "throttle-debounce";
 export default {
+  name:'searchPage',
+  components:{
+    Loading
+  },
   data() {
     return {
       url: "v2/movie/search?q=",
@@ -94,12 +100,15 @@ export default {
     }
     next();
   },
+  created() {
+    this.debounceLoadList=debounce(800,this.loadList)
+  },
   watch: {
     searchValue() {
       if (this.searchValue == "") {
         this.searchMovieList = [];
       } else {
-        this.loadList(this.searchValue);
+        this.debounceLoadList(this.searchValue);
       }
     }
   },
@@ -113,7 +122,7 @@ export default {
           that.searchMovieList = response.body.subjects;
         },
         err => {
-          console.error(err.message);
+          console.error(err.message||'系统异常，请稍后再试');
         }
       );
     },

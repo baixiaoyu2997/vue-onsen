@@ -56,16 +56,21 @@
           </v-ons-row>
         </v-ons-row>
       </div>
-      <loading v-show="searchMovieList.length===0"></loading>
+      <Loading v-show="searchMovieList.length===0" />
     </div>
   </v-ons-page>
 </template>
 
 <script>
 import rating from "components/rating";
+import Loading from "components/Loading.vue";
 import detailPage from "./detailPage";
 export default {
   name: "searchPage2",
+  components:{
+    Loading,
+    rating
+  },
   data() {
     return {
       url: "v2/movie/search?q=",
@@ -107,7 +112,7 @@ export default {
             }
           },
           err => {
-            console.error(err.message);
+            console.error(err.message||'系统异常，请稍后再试');
           }
         );
     },
@@ -136,9 +141,6 @@ export default {
         }
       });
     }
-  },
-  components: {
-    rating
   }
 };
 </script>

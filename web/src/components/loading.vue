@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-    name: "loading",
+    name: "Loading",
     data() {
         return {
         }

@@ -40,15 +40,21 @@
       </v-ons-list>
     </div>
     <div v-show="items.length===0">
-      <loading></loading>
+      <Loading />
     </div>
   </v-ons-page>
 </template>
 <script>
 import rating from "components/rating";
+import Loading from "components/Loading";
 import detailPage from "../detailPage.vue";
 export default {
+  // name:'HitMovieList', 添加name后，v-ons-tabbar组件渲染同一个组件时vue会报错（https://github.com/OnsenUI/OnsenUI/issues/2471#issuecomment-404078584）
   props: ["url"],
+  components:{
+    Loading,
+    rating
+  },
   data() {
     return {
       state: "initial",
@@ -74,7 +80,6 @@ export default {
       deep: true
     }
   },
-
   methods: {
     loadMore(done) {
       let that = this;
@@ -115,7 +120,7 @@ export default {
             }
           },
           err => {
-            console.error(err.message);
+            console.error(err.message||'系统异常，请稍后再试');
           }
         );
     },
@@ -129,9 +134,6 @@ export default {
         }
       });
     }
-  },
-  components: {
-    rating
   }
 };
 </script>

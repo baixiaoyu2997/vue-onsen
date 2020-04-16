@@ -9,6 +9,7 @@ import HitMoviePage from '@/pages/homeMenu/HitMoviePage.vue';
 import FindVideo from "@/pages/findVideoMenu/FindVideo.vue"
 
 export default {
+  name:'AppTabbar',
   data() {
     return {
       animationOptions: {},

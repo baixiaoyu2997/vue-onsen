@@ -7,14 +7,13 @@ import VueOnsen from "vue-onsenui";
 import "./utils/resource.js";
 import store from "./store/";
 import vueScroll from "vue-scroll";
-import loading from "./components/loading.vue";
+
 import AppNavigator from "./AppNavigator.vue";
 
 Vue.use(Vuex);
 Vue.use(VueOnsen);
 Vue.use(vueScroll);
 
-Vue.component("loading", loading);
 
 Vue.config.productionTip = false;
 

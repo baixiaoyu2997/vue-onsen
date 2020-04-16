@@ -85,16 +85,21 @@
         </v-ons-row>
       </v-ons-row>
     </div>
-    <loading v-show="!flag"></loading>
+    <Loading v-show="!flag" />
   </v-ons-page>
 </template>
 
 <script>
 import RGBaster from "rgbaster";
+import Loading from "components/Loading.vue";
 import rating from "components/rating";
 
 export default {
   name: "detailPage",
+  components:{
+    Loading,
+    rating
+  },
   data() {
     return {
       url: "v2/movie/subject/",
@@ -127,9 +132,6 @@ export default {
     expand() {
       this.main__summary = "main__summary";
     }
-  },
-  components: {
-    rating
   }
 };
 </script>

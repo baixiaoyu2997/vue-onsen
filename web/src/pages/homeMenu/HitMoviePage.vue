@@ -1,16 +1,26 @@
 <template>
-  <v-ons-page class="hitMoviePage">
+  <v-ons-page class="HitMoviePage">
     <index-header :city="city.value"></index-header>
-    <v-ons-tabbar tab-border swipeable position="top" :tabs="tabs" :visible="true" class="selectTabbar">
-    </v-ons-tabbar>
+    <v-ons-tabbar
+      tab-border
+      swipeable
+      position="top"
+      :tabs="tabs"
+      :visible="true"
+      class="selectTabbar"
+    ></v-ons-tabbar>
   </v-ons-page>
 </template>
 
 <script>
   import indexHeader from 'components/headerSearch/indexHeader';
-  import hitMovieList from './HitMovieList';
+  import HitMovieList from './HitMovieList';
   export default {
     name: 'HitMoviePage',
+    components: {
+      indexHeader,
+      HitMovieList,
+    },
     data() {
       return {
         hitMovieUrl: "v2/movie/in_theaters?city=",
@@ -24,13 +34,13 @@
       tabs() {
         return [{
           label: '正在热映',
-          page: hitMovieList,
+          page: HitMovieList,
           props: {
             url: this.hitMovieUrl
           }
         }, {
           label: '即将上映',
-          page: hitMovieList,
+          page: HitMovieList,
           props: {
             url: this.comingSoonUrl
           }
@@ -49,36 +59,30 @@
       headerColTwo() {
         this.headerColOne = !this.headerColTwo;
       }
-    },
-    components: {
-      indexHeader,
-      hitMovieList,
     }
   }
-
 </script>
 
 <style lang="scss">
-  .hitMoviePage {
-    .page__background {
-      background: #fff !important;
+.HitMoviePage {
+  .page__background {
+    background: #fff !important;
+  }
+  .page__content {
+    background: #fff !important;
+  }
+  .selectTabbar {
+    top: 38px !important;
+    .tabbar__label {
+      color: #929292;
+      font-size: 17px;
     }
-    .page__content {
-      background: #fff !important;
+    .active .tabbar__label {
+      color: #2d2d2d;
     }
-    .selectTabbar {
-      top: 38px !important;
-      .tabbar__label {
-        color: #929292;
-        font-size: 17px;
-      }
-      .active .tabbar__label {
-        color: #2d2d2d;
-      }
-      .tabbar__border {
-        background: #2d2d2d;
-      }
+    .tabbar__border {
+      background: #2d2d2d;
     }
   }
-
+}
 </style>
