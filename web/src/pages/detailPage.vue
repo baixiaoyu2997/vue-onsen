@@ -59,28 +59,26 @@
         <v-ons-row>
           <ons-row class="main__title">影人</ons-row>
           <ons-row class="main__scroll-x">
-            <ons-col
-              width="84px"
-              v-for="item in res.directors"
-              :key="'director'+item.id"
-              v-show="item.avatars"
-              class="main__directors"
-            >
-              <img v-if="item.avatars" :src="item.avatars.medium" />
-              <div class="g-overflowHide">{{item.name}}</div>
-              <div class="scroll-x__label">导演</div>
-            </ons-col>
-            <ons-col
-              width="84px"
-              v-for="item in res.casts"
-              :key="'cast'+item.id"
-              v-show="item.avatars"
-              class="main__casts"
-            >
-              <img :src="item.avatars.medium" />
-              <div class="g-overflowHide">{{item.name}}</div>
-              <div class="scroll-x__label">演员</div>
-            </ons-col>
+            <template v-for="item in res.directors">
+              <ons-col
+                width="84px"
+                :key="'director'+item.id"
+                v-if="item.avatars"
+                class="main__directors"
+              >
+                <img v-if="item.avatars" :src="item.avatars.medium" />
+                <div class="g-overflowHide">{{item.name}}</div>
+                <div class="scroll-x__label">导演</div>
+              </ons-col>
+            </template>
+
+            <template v-for="item in res.casts">
+              <ons-col width="84px" v-if="item.avatars" :key="'cast'+item.id" class="main__casts">
+                <img :src="item.avatars.medium" />
+                <div class="g-overflowHide">{{item.name}}</div>
+                <div class="scroll-x__label">演员</div>
+              </ons-col>
+            </template>
           </ons-row>
         </v-ons-row>
       </v-ons-row>
